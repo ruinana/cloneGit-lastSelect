@@ -1,5 +1,5 @@
 git status
-一、此处不是正常的
+一、修改后没有add commit push，重新打开Git Bash 就会出现以下情况，必须按add-commit-push的顺序
 $ cd cloneGit-lastSelect=======================每次打开git bash都需要，写一
 $ pwd  =====转到设置的git根目录名称下============下这两个，这样才能进入git目录
 	$ cd  /小写盘符字母/文件夹     手动切换盘符
@@ -97,4 +97,24 @@ $ git status
 	你们的分支机构是最新的
 	nothing to commit, working tree clean
 	没有用提交的， 工作树是干净的
+四、添加新建的文件（在三的基础上接着往下进行）
+$ git add git-status.txt
+$ git commit -m "add new files git-status.txt"
+	[master 198c202] add new files git-status.txt
+	 1 file changed, 100 insertions(+)
+	 create mode 100644 git-status.txt
+$ git push
+	Warning:permanently added the RSA host key for IP address '52.74.223.119' to the list of known hosts.
+	Counting objects:3, done.
+	Delta compression using up to 2 threads.
+	Compressing objects:100% (3/3), done.
+	Writing objects:100% (3/3), 1.07 KiB/s, done.
+	Total 3 (delta 1), reused 0 (delta 0)
+	remote: Resolving deltas:100% (1/1), completed with 1 local object.
+	To github.com:ruinana/cloneGit-lastSelect.git
+		1d7e8f8..496236e  master -> master”
+$ git status
+	On branch master
+	Your branch is up to date with 'origin/master'.
+	nothing to commit, working tree clean
 
