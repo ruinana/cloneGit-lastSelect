@@ -1,0 +1,100 @@
+git status
+一、此处不是正常的
+$ cd cloneGit-lastSelect=======================每次打开git bash都需要，写一
+$ pwd  =====转到设置的git根目录名称下============下这两个，这样才能进入git目录
+	$ cd  /小写盘符字母/文件夹     手动切换盘符
+	修改默认路径：右击Git Bash图标>属性>快捷方式>目标栏目去掉--cd-to-home>起始位置改为自定义的git路径如：F:\Workspace\KYGitLabel。
+$ git status
+	On branch master
+	Your branch is up to date with 'origin/master'.
+	你的分支是最新的“origin/master”。
+	Changes not staged for commit:
+	未提交的更改提交：
+	  (use "git add <file>..." to update what will be committed)
+	  使用“git add <file> ”更新将提交的内容
+	  (use "git checkout -- <file>..." to discard changes in working directory)
+	  使用“git checkou <file> ”放弃工作目录中的更改
+	  modified jiesho
+	  被修改的文件（上面显示红色的）
+	  no changes added to commit (use "git add" and/or "git commit -a")
+	  没有提交更改(使用"git add" 和/或 "git commit -a")
+在文件夹中打开jieshao文件并做修改
+$ git status
+	On branch master
+	Your branch is up to date with 'origin/master'.
+	Changes not staged for commit:
+	  (use "git add <file>..." to update what will be committed)
+	  (use "git checkout -- <file>..." to discard changes in working directory)
+	  modified jiesho
+	  no changes added to commit (use "git add" and/or "git commit -a")
+$ git add jieshao=====添加到暂存区
+$ git status    
+	On branch master
+	Your branch is up to date with 'origin/master'.
+	Changes to be committed:
+	提交修改：
+	  (use "git reset HEAD <file>..." to unstage)
+	  用"git reset HEAD <file>..."到舞台
+	  命令git reset HEAD <file>可以把暂存区的修改撤销掉（unstage），重新放回工作区
+    modified:   readme.txt  
+    修改过的文件（上面显示绿色的）
+$ git commit -m "update jieshao files"  ======把暂存区的所有修改提交到分支
+	[master e475afc] add distributed
+	 1 file changed, 1 insertion(+), 1 deletion(-)
+	[master e475afc]添加分布式
+	 1文件更改，1插入（+），1删除（-）
+$ git status    
+	On branch master
+	Your branch is ahead of 'origin/master' by 1 commit.
+	你的分支在“origin/master”之前领先于1。
+	  (use "git push" to publish your local commits)
+	  使用“git push”发布您的本地提交
+	Changes not staged for commit:
+	  (use "git add <file>..." to update what will be committed)
+	  (use "git checkout -- <file>..." to discard changes in working directory)
+	  modified jiesho被修改的文件（上面显示红色的）
+	  no changes added to commit (use "git add" and/or "git commit -a")
+$ git push
+	Warning:permanently added the RSA host key for IP address '13.229.188.59' to the list of known hosts.
+	警告：将IP地址“13.229.188.59”的RSA主机密钥永久添加到已知主机列表中。
+	Counting objects:3, done.
+	计数对象：3，完成。
+	Delta compression using up to 2 threads.
+	使用最多2个线程的增量压缩。
+	Compressing objects:100% (3/3), done.
+	压缩对象：100%（3/3），完成。
+	Writing objects:100% (3/3), 1.07 KiB/s, done.
+	写作对象：100%（3/3），1.07 KiB/s，完成。
+	Total 3 (delta 1), reused 0 (delta 0)
+	共计3（增量1），重复使用0（Delta 0）
+	remote: Resolving deltas:100% (1/1), completed with 1 local object.
+	远程：解析Deltas：100%（1/1），用1个本地对象完成。
+	To github.com:ruinana/cloneGit-lastSelect.git
+		1d7e8f8..496236e  master -> master
+$ git status
+	On branch master
+	Your branch is up to date with 'origin/master'.
+	Changes not staged for commit:
+	  (use "git add <file>..." to update what will be committed)
+	  (use "git checkout -- <file>..." to discard changes in working directory)
+	  modified jiesho
+	  no changes added to commit (use "git add" and/or "git commit -a")
+二、解决上面的方法
+$ cd cloneGit-lastSelect
+$ pwd
+$ git add jieshao
+$ git commit -a
+gi esc :wp
+$ git commit -m "jieshao"
+$ git push
+三、正常流程
+$ cd cloneGit-lastSelect
+$ pwd
+	/c/Users/lee/cloneGit-lastSelect
+$ git status
+	On branch master
+	Your branch is up to date with 'origin/master'.
+	你们的分支机构是最新的
+	nothing to commit, working tree clean
+	没有用提交的， 工作树是干净的
+
