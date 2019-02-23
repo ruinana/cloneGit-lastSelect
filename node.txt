@@ -1,0 +1,173 @@
+(
+ Node.js是一个能够在服务器端运行JavaScript的开放源代码、跨平台JavaScript运行环境。
+ Node.js采用Google开发的V8运行代码，使用事件驱动、非阻塞和异步输入输出模型等技术来提高性能，可优化应用程序的传输量和规模。这些技术通常用于数据密集的事实应用程序。
+ 以上解释来自维基百科，简单的说Node.js就是基于V8引擎的JavaScript运行环境。用于开发服务端应用。
+
+node.js：
+ 简单的说 Node.js 就是运行在服务端的 JavaScript。
+ Node.js 是一个基于Chrome JavaScript 运行时建立的一个平台。
+ Node.js 是一个事件驱动I/O服务端JavaScript环境，基于Google的V8引擎，V8引擎执行Javascript的速度非常快，性能非常好。
+               输入/输出（I/O）
+
+为什么使用node.js：
+ "Node.js 是服务器端的 JavaScript 运行环境，它具有无阻塞(non-blocking)和事件驱动(event-driven)等的特色，Node.js 采用 V8 引擎，同样，Node.js 实现了类似 Apache 和 nginx 的web服务，让你可以通过它来搭建基于 JavaScript 的 Web App。" 
+
+为什么要用nodejs当做前台,java当做后台：
+ 在传统的web项目中，前台展现部分图片、css、js等都会放到服务器上面（如tomcat），当系统访问量比较大的时候，服务器会不断的将前台内容返回给客户端，无形之中添加了系统的访问压力。
+ 由于nodejs性能十分高效，对系统请求相应十分迅速，所以展示前台可以用nodejs，后台部分可以用java，前后台分离，使java开发人员可以更加关注后台的开发。
+
+自我了解node.js：
+ 使用node.js运行javascript代码；比tomcat服务器端更快速；
+)
+Windows 二进制文件 (.exe)安装（下面链接是旧的）
+32 位安装包下载地址 : http://nodejs.org/dist/v0.10.26/node.exe
+64 位安装包下载地址 : http://nodejs.org/dist/v0.10.26/x64/node.exe
+安装步骤
+	双击下载的安装包 Node.exe
+	点击 Run（运行）按钮将出现命令行窗口
+版本测试
+	windows+R
+	进入node.exe 所在的目录
+	如果node.exe在E:\node文件夹
+		输入e:回车
+		出现E:\>后接着输入 cd node回车
+		出现E:\node>后接着输入node --version
+		出现版本号说明成功
+	如果node.exe在c盘的C:\Users\lee\Downloads\node，
+	如果window+R在C:\Users\lee>
+		输入cd Downloads回车
+		出现C:\Users\lee\Downloads>后接着输入 cd node回车
+		出现Users\lee\Downloads\node>后接着输入node --version
+		出现版本号说明成功
+
+编写第一个实例
+	在node文件夹新建server.js,并输入代码
+		var http = require('http');
+		http.createServer(function (request, response) {
+		    response.writeHead(200, {'Content-Type': 'text/plain'})
+		    response.end('Hello World\n');
+		}).listen(8888);
+		console.log('Server running at http://127.0.0.1:8888/');
+	在w+r中的node目录中输入node server.js，回车
+	出现Server running at http://127.0.0.1:8888/
+	在浏览器中输入http://127.0.0.1:8888/，可以看到页面中出现Hello World
+退出
+	只需要连续按两次Ctrl+C或者输入“.exit”回车即可
+
+更新到最新的稳定版本nodejs（需要先安装n）
+npm install n
+n stale
+
+
+
+
+(
+NPM是什么：
+ NPM（node package manager），通常称为node包管理器。顾名思义，它的主要功能就是管理node包，包括：安装、卸载、更新、查看、搜索、发布等。
+ npm的背后，是基于couchdb的一个数据库，详细记录了每个包的信息，包括作者、版本、依赖、授权信息等。它的一个很重要的作用就是：将开发者从繁琐的包管理工作（版本、依赖等）中解放出来，更加专注于功能的开发。
+
+ 包管理工具其实就是对一些程序包进行安装、升级、卸载的管理工具。程序员在编程的时候常常会用到一些工具，类似于我们在电脑上安装一些软件。这些工具或者一些源码包都是通过命令行来下载安装使用的。所以就需要一个管理工具对这些安装包进行管理。
+
+自我了解npm：
+)
+安装
+	NPM是随同NodeJS一起安装的包管理工具，能解决NodeJS代码部署上的很多问题.
+版本测试
+	如果node.exe在c盘的C:\Users\lee\Downloads\node，
+	如果window+R在C:\Users\lee>
+		输入cd Downloads回车
+		出现C:\Users\lee\Downloads>后接着输入 cd node回车
+		出现Users\lee\Downloads\node>后接着输入npm -v
+		出现版本号说明成功
+		也可一次性输入downloads/node
+升级
+	出现Users\lee\Downloads\node>后接着输入npm install npm -g
+npm包的两种安装模式：
+	本地安装：package会被下载到当前所在目录，也只能在当前目录下使用。
+	全局安装：package会被下载到到特定的系统目录下，安装的package能够在所有目录下使用。
+使用npm本地安装package  npm install pkg - 本地安装
+	运行如下命令，就会在当前目录下安装grunt-cli（grunt命令行工具）
+	npm install grunt-cli
+	安装结束后，当前目录下回多出一个node_modules目录，grunt-cli就安装在里面。同时注意控制台输出的信息：
+	grunt-cli@0.1.9 node_modules/grunt-cli
+	├── resolve@0.3.1
+	├── nopt@1.0.10 (abbrev@1.0.4)
+	└── findup-sync@0.1.2 (lodash@1.0.1, glob@3.1.21)
+	简单说明一下：
+		grunt-cli@0.1.9：当前安装的package为grunt-cli，版本为0.19
+		node_modules/grunt-cli：安装目录
+		resolve@0.3.1：依赖的包有resolve、nopt、findup-sync，它们各自的版本、依赖在后面的括号里列出来
+npm install -g pkg- 全局安装
+	上面已经安装了grunt-cli，然后你跑到其他目录下面运行如下命令
+	grunt
+	果断提示你grunt命令不存在，为什么呢？因为上面只是进行了本地安装，grunt命令只能在对应安装目录下使用。
+	-bash: grunt: command not found
+	如果为了使用grunt命令，每到一个目录下都得重新安装一次，那不抓狂才怪。肿么办呢？
+	很简单，采用全局安装就行了，很简单，加上参数-g就可以了
+	npm install -g grunt-cli
+	于是，在所有目录下都可以无压力使用grunt命令了。这个时候，你会注意到控制台输入的信息有点不同。主要的区别在于安装目录，现在变成了/usr/local/lib/node_modules/grunt-cli，/usr/local/lib/node_modules/也就是之前所说的全局安装目录啦。
+	grunt-cli@0.1.9 /usr/local/lib/node_modules/grunt-cli
+	├── resolve@0.3.1
+	├── nopt@1.0.10 (abbrev@1.0.4)
+	└── findup-sync@0.1.2 (lodash@1.0.1, glob@3.1.21)
+npm的包管理命令，常用的安装、卸载、更新、查看、搜索、发布等。
+	安装最新版本的grunt-cli
+		npm install grunt-cli
+	安装0.1.9版本的grunt-cli
+		npm install grunt-cli@"0.1.9"
+	通过package.json进行安装
+			{package.json 位于模块的目录下，用于定义包的属性。}
+			{包描述文件用于表达非代码相关的信息，它是一个JSON格式的文件——package.json，位于包的根目录下，是包的重要组成部分。而NPM的所有行为都与包描述文件的字段息息相关
+			package.json文件，定义了项目所需要的各种模块，以及项目的配置信息（比如名称、版本、许可证等元数据）。npm install 命令根据这个配置文件，自动下载所需的模块，也就是配置项目所需的运行和开发环境
+			如果一个模块不在package.json文件之中，可以单独安装这个模块，并使用相应的参数，将其写入package.json文件之中
+			$ npm install express --save
+			$ npm install express --save-dev
+			上面代码表示单独安装express模块，--save参数表示将该模块写入dependencies属性，--save-dev表示将该模块写入devDependencies属性}
+		如果我们的项目依赖了很多package，一个一个地安装那将是个体力活。我们可以将项目依赖的包都在package.json这个文件里声明，然后一行命令搞定
+		npm install
+	其他package安装命令
+		运行如下命令，列出所有npm install可能的参数形式
+		npm install --help
+		输出如下，有兴趣的童鞋可以了解下
+		npm install <tarball file>
+		npm install <tarball url>
+		npm install <folder>
+		npm install <pkg>
+		npm install <pkg>@<tag>
+		npm install <pkg>@<version>
+		npm install <pkg>@<version range>
+	卸载grunt-cli
+		比如卸载grunt-cli
+		npm uninstall grunt-cli
+	卸载0.1.9版本的grunt-cli
+		npm uninstall grunt-cli@"0.1.9"
+	npm ls：查看安装了哪些包
+		运行如下命令，就可以查看当前目录安装了哪些package
+		npm ls
+		如果是要查看package的全局安装信息，加上-g就可以
+	npm ls pkg：查看特定package的信息
+		运行如下命令，输出grunt-cli的信息
+		npm ls grunt-cli
+		输出的信息比较有限，只有安装目录、版本
+	如果要查看更详细信息，可以通过npm info pkg，输出的信息非常详尽，包括作者、版本、依赖等。
+		npm info grunt-cli
+	npm update pkg：package更新
+		npm update grunt-cli
+	npm search pgk：搜索
+		输入如下命令
+		npm search grunt-cli
+	npm发布
+npm help是我们最好的朋友，如果忘了有哪些命令，命令下有哪些参数，可通过help进行查看。
+
+可以使用npm下载各种所需文件
+例如下载grunt-cli和jquery
+安装grunt-cli： npm install grunt-cli
+	回车后会下载node_modules文件夹下，出现的代码会告诉你下载的是哪一版本
+安装jquery：npm install jquery
+	回车后会下载node_modules文件夹下，出现的代码会告诉你下载的是哪一版本
+
+
+npm install ionic   安装ionic(HTML5应用程序开发框架)
+ionic start myApp tabs  (生成myapp项目，选项：blank/tabs/sidemenu)
+
+npm 
